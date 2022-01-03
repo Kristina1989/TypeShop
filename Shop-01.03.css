@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+}
+
+.shop {
+    width: 500px;
+    height: 700px;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.s-evenly {
+    justify-content: space-evenly;
+}
+.inventory {
+    width: 500px;
+    height: 700px;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.j-center {
+    justify-content: center;
+}
+
+.productCard {
+    border: 1px solid black;
+    width: 450px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
