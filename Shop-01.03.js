@@ -74,6 +74,8 @@ const items = [
         category: "furniture"
     },
 ];
+function cardClick() {
+}
 function showAll() {
     //@ts-ignore
     products.innerHTML = "";
@@ -109,11 +111,10 @@ function showAll() {
     }
 }
 showAll();
-//@ts-ignore
-buttons[0].onclick = () => {
+function showCategory(category) {
     products.innerHTML = "";
     for (const item of items) {
-        if (item.category === "food") {
+        if (item.category === category) {
             const card = document.createElement("div");
             card.classList.add("productCard");
             card.onclick = () => {
@@ -141,73 +142,13 @@ buttons[0].onclick = () => {
             products?.appendChild(card);
         }
     }
-};
+}
 //@ts-ignore
-buttons[1].onclick = () => {
-    products.innerHTML = "";
-    for (const item of items) {
-        if (item.category === "electronics") {
-            const card = document.createElement("div");
-            card.classList.add("productCard");
-            card.onclick = () => {
-                inventory.appendChild(card.cloneNode(true));
-                money -= item.price;
-                // @ts-ignore
-                allMoney.innerHTML = "";
-                // @ts-ignore
-                allMoney.innerHTML = `Money: ${money}`;
-                weightLimit -= item.weight;
-                // @ts-ignore
-                weight.innerHTML = "";
-                // @ts-ignore
-                weight.innerHTML = `Weight Limit: ${weightLimit}`;
-            };
-            card.innerHTML = `
-
-<img src="${item.photo}" alt="">
-<div>
-<h5>Name:${item.name}</h5>
-<h5>Weight:${item.weight}</h5>
-<h5>Price:${item.price}</h5>
-</div>
-`;
-            products?.appendChild(card);
-        }
-    }
-};
+buttons[0].onclick = () => showCategory("food");
 //@ts-ignore
-buttons[2].onclick = () => {
-    products.innerHTML = "";
-    for (const item of items) {
-        if (item.category === "furniture") {
-            const card = document.createElement("div");
-            card.onclick = () => {
-                inventory.appendChild(card.cloneNode(true));
-                money -= item.price;
-                // @ts-ignore
-                allMoney.innerHTML = "";
-                // @ts-ignore
-                allMoney.innerHTML = `Money: ${money}`;
-                weightLimit -= item.weight;
-                // @ts-ignore
-                weight.innerHTML = "";
-                // @ts-ignore
-                weight.innerHTML = `Weight Limit: ${weightLimit}`;
-            };
-            card.classList.add("productCard");
-            card.innerHTML = `
-
-<img src="${item.photo}" alt="">
-<div>
-<h5>Name:${item.name}</h5>
-<h5>Weight:${item.weight}</h5>
-<h5>Price:${item.price}</h5>
-</div>
-`;
-            products?.appendChild(card);
-        }
-    }
-};
+buttons[1].onclick = () => showCategory("electronics");
+//@ts-ignore
+buttons[2].onclick = () => showCategory("furniture");
 //@ts-ignore
 buttons[3].onclick = showAll;
 //@ts-ignore
@@ -227,7 +168,6 @@ buttons[5].onclick = () => {
             price: Number(input[1].value),
             category: select.value
         });
-        console.log(items);
         card.onclick = () => {
             inventory.appendChild(card.cloneNode(true));
             money -= Number(input[1].value);
