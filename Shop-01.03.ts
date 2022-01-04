@@ -3,10 +3,13 @@ const buttons: NodeList = document.querySelectorAll("button")!
 const inventory: HTMLElement | null = document.querySelector(".inventory")!
 const allMoney: HTMLElement | null = document.querySelector(".money")!
 const weight: HTMLElement | null = document.querySelector(".weight")!
+const input = document.querySelectorAll("input")
+const select = document.querySelector("select")!
+const modal: HTMLElement | null = document.querySelector(".modal")!
+
 
 let money = 200
 let weightLimit = 30
-
 
 
 interface itemsInt {
@@ -84,8 +87,7 @@ const items: itemsInt[] = [
 ]
 
 
-
-function showAll () {
+function showAll() {
 
     //@ts-ignore
     products.innerHTML = ""
@@ -98,13 +100,13 @@ function showAll () {
                 // @ts-ignore
                 inventory.appendChild(card.cloneNode(true))
 
-                money-= item.price
+                money -= item.price
                 // @ts-ignore
                 allMoney.innerHTML = ""
                 // @ts-ignore
                 allMoney.innerHTML = `Money: ${money}`
 
-                weightLimit-= item.weight
+                weightLimit -= item.weight
                 // @ts-ignore
                 weight.innerHTML = ""
                 // @ts-ignore
@@ -126,7 +128,7 @@ function showAll () {
     }
 }
 
-showAll ()
+showAll()
 
 
 //@ts-ignore
@@ -138,6 +140,17 @@ buttons[0].onclick = () => {
             card.classList.add("productCard")
             card.onclick = () => {
                 inventory.appendChild(card.cloneNode(true))
+                money -= item.price
+                // @ts-ignore
+                allMoney.innerHTML = ""
+                // @ts-ignore
+                allMoney.innerHTML = `Money: ${money}`
+
+                weightLimit -= item.weight
+                // @ts-ignore
+                weight.innerHTML = ""
+                // @ts-ignore
+                weight.innerHTML = `Weight Limit: ${weightLimit}`
 
             }
             card.innerHTML = `
@@ -153,10 +166,6 @@ buttons[0].onclick = () => {
         }
     }
 }
-
-//@ts-ignore
-buttons[3].onclick = showAll
-
 //@ts-ignore
 buttons[1].onclick = () => {
     products.innerHTML = ""
@@ -166,6 +175,18 @@ buttons[1].onclick = () => {
             card.classList.add("productCard")
             card.onclick = () => {
                 inventory.appendChild(card.cloneNode(true))
+                money -= item.price
+                // @ts-ignore
+                allMoney.innerHTML = ""
+                // @ts-ignore
+                allMoney.innerHTML = `Money: ${money}`
+
+                weightLimit -= item.weight
+                // @ts-ignore
+                weight.innerHTML = ""
+                // @ts-ignore
+                weight.innerHTML = `Weight Limit: ${weightLimit}`
+
             }
             card.innerHTML = `
 
@@ -190,6 +211,19 @@ buttons[2].onclick = () => {
             card.onclick = () => {
 
                 inventory.appendChild(card.cloneNode(true))
+
+                money -= item.price
+                // @ts-ignore
+                allMoney.innerHTML = ""
+                // @ts-ignore
+                allMoney.innerHTML = `Money: ${money}`
+
+                weightLimit -= item.weight
+                // @ts-ignore
+                weight.innerHTML = ""
+                // @ts-ignore
+                weight.innerHTML = `Weight Limit: ${weightLimit}`
+
             }
 
             card.classList.add("productCard")
@@ -206,6 +240,66 @@ buttons[2].onclick = () => {
         }
     }
 }
+//@ts-ignore
+buttons[3].onclick = showAll
+//@ts-ignore
+buttons[4].onclick = () => {
+    modal.style.display = "flex"
+
+}
+console.log(buttons)
+//@ts-ignore
+buttons[5].onclick = () => {
+
+    console.log(select.value)
+
+    if (select.value !== "") {
+        const card = document.createElement("div")
+        items.push({
+            name: input[0].value,
+            photo: input[3].value,
+            weight: Number(input[2].value),
+            price: Number(input[1].value),
+            category: select.value
+
+        })
+
+        console.log(items)
+        card.onclick = () => {
+
+            inventory.appendChild(card.cloneNode(true))
+            money -= Number(input[1].value)
+            // @ts-ignore
+            allMoney.innerHTML = ""
+            // @ts-ignore
+            allMoney.innerHTML = `Money: ${money}`
+
+            weightLimit -= Number(input[2].value)
+            // @ts-ignore
+            weight.innerHTML = ""
+            // @ts-ignore
+            weight.innerHTML = `Weight Limit: ${weightLimit}`
+
+        }
+
+        card.classList.add("productCard")
+        card.innerHTML = `
+
+<img src="${input[3].value}" alt="">
+<div>
+<h5>Name:${input[0].value}</h5>
+<h5>Weight:${input[2].value}</h5>
+<h5>Price:${input[1].value}</h5>
+</div>
+`
+        products?.appendChild(card)
+    }
+
+    modal.style.display = "none"
+
+}
+
+
 
 
 

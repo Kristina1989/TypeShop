@@ -10,32 +10,32 @@
 <body>
 <div class="container d-flex j-center">
 
-   <div>
-       <h3 class="d-flex j-center">SHOP</h3>
-       <div class = "shop">
-           <div class=" d-flex s-evenly">
-               <button>FOOD</button>
-               <button>ELECTRONICS</button>
-               <button>FURNITURE</button>
-               <button>SHOW ALL</button>
-           </div>
+    <div>
+        <h3 class="d-flex j-center">SHOP</h3>
+        <div class="shop">
+            <div class=" d-flex s-evenly">
+                <button>FOOD</button>
+                <button>ELECTRONICS</button>
+                <button>FURNITURE</button>
+                <button>SHOW ALL</button>
+            </div>
 
 
-           <div class="products"></div>
+            <div class="products"></div>
 
 
-       </div>
-<div class="d-flex j-center">
-    <button>ADD PRODUCT</button>
-</div>
+        </div>
+        <div class="d-flex j-center">
+            <button>ADD PRODUCT</button>
+        </div>
 
-   </div>
+    </div>
 
     <div>
 
         <h3 class="d-flex j-center">INVENTORY</h3>
 
-        <div class = "inventory">
+        <div class="inventory">
             <div class="d-flex s-evenly ">
                 <h3 class="money">Money: 200</h3>
                 <h3 class="weight">Weight Limit: 30</h3>
@@ -45,7 +45,23 @@
 
     </div>
 
-    <div class ="modal"></div>
+
+    <div class="modal d-flex column j-center">
+
+        <select class = "margin10 padding10" name="" id = "category">
+            <option value="food">Food</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
+        </select>
+
+
+        <input class = "margin10 padding10" value="Phone" placeholder="Name" type="text">
+        <input class = "margin10 padding10" value="199" placeholder="Price" type="text">
+        <input class = "margin10 padding10" value="2" placeholder="Weight" type="text">
+        <input class = "margin10 padding10" value="https://istore.lt/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone_13_mini_productred.jpg" placeholder="Photo" type="text">
+        <button class = "margin10 padding10" >CREATE PRODUCT</button>
+
+    </div>
 
 
 </div>

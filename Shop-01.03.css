@@ -1,5 +1,6 @@
 .container {
     display: flex;
+    position: relative;
 }
 
 .shop {
@@ -50,4 +51,24 @@ img {
 
 .column {
   flex-direction: column;
+}
+
+.modal {
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    padding: 20px;
+    position: absolute;
+    left: 500px;
+    top: 200px;
+    display: none;
+    background-color: lightgrey;
+
+}
+
+.margin10 {
+    margin: 10px;
+}
+.padding10 {
+    padding: 10px;
 }
